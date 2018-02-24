@@ -7,8 +7,8 @@ class AbstractCamera(ABC):
     """An abstract class representing a basic camera."""
 
     @abstractmethod
-    def take_picture(self, image_path, filename, overwrite=False):
-        """Take a picture and store it in a specified location.
+    def capture_image(self, image_path, filename, overwrite=False):
+        """Capture an image and store it in a specified location.
 
         Args:
             image_path: The full path that the image will be stored to.
