@@ -8,7 +8,7 @@ class AbstractCamera(ABC):
 
     @abstractmethod
     def capture_image(self, image_path, filename, overwrite=False):
-        """Capture an image and store it in a specified location.
+        """Capture an image and store it in the specified location.
 
         Args:
             image_path: The full path that the image will be stored to.
