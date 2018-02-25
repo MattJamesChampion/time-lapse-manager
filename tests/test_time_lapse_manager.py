@@ -11,7 +11,7 @@ class TestTimeLapseManager(TestCase):
         self.mock_camera_collection = [self.first_mock_camera,
             self.second_mock_camera]
 
-    def test_cameras_are_set_on_creation(self):
+    def test_get_cameras_returns_cameras(self):
         time_lapse_manager = TimeLapseManager(self.mock_camera_collection)
 
         self.assertEqual(time_lapse_manager.get_cameras(),
