@@ -17,7 +17,12 @@ class TimeLapseManager:
             self._cameras = []
 
     def add_camera(self, camera):
-        pass
+        """Add a camera to the collection that will be used with this time-lapse manager.
+
+        Args:
+            camera: The camera to add
+        """
+        self._cameras.append(camera)
 
     def set_cameras(self, cameras):
         """Set the cameras that will be used with this time-lapse manager.
