@@ -4,24 +4,30 @@
 class TimeLapseManager:
     """A basic time-lapse manager."""
 
-    def __init__(self, camera):
+    def __init__(self, cameras=None):
         """Initialise the time-lapse manager with the camera that will be used.
 
         Args:
-            camera: The camera that will be used when capturing images using
-                this time-lapse manager.
+            cameras: A collection of cameras that will be used when capturing
+                images using this time-lapse manager.
         """
-        self.set_camera(camera)
+        if cameras is not None:
+            self._cameras = cameras
+        else:
+            self._cameras = []
 
-    def set_camera(self, camera):
-        """Set the camera that will be used with this time-lapse manager.
+    def add_camera(self, camera):
+        pass
+
+    def set_cameras(self, cameras):
+        """Set the cameras that will be used with this time-lapse manager.
 
         Args:
-            camera: The camera that will be used when capturing images using
+            cameras: The cameras that will be used when capturing images using
                 this time-lapse manager.
         """
-        self._camera = camera
+        self._cameras = cameras
 
-    def get_camera(self):
-        """Get the camera currently set on this time-lapse manager."""
-        return self._camera
+    def get_cameras(self):
+        """Get the cameras currently set on this time-lapse manager."""
+        return self._cameras
