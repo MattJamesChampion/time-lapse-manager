@@ -47,7 +47,7 @@ class TimeLapseManager:
 
         Returns: A collection of cameras.
         """
-        return self._cameras
+        return self._cameras[:]
 
     def has_camera(self, camera):
         """Return whether the camera exists on this time-lapse manager.
