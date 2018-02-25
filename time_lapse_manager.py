@@ -22,3 +22,6 @@ class TimeLapseManager:
         """
         self._camera = camera
 
+    def get_camera(self):
+        """Get the camera currently set on this time-lapse manager."""
+        return self._camera
