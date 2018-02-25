@@ -12,7 +12,7 @@ class TimeLapseManager:
                 images using this time-lapse manager.
         """
         if cameras is not None:
-            self._cameras = cameras
+            self._cameras = cameras[:]
         else:
             self._cameras = []
 
