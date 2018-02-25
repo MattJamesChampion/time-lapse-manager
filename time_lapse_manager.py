@@ -37,3 +37,14 @@ class TimeLapseManager:
     def get_cameras(self):
         """Get the cameras currently set on this time-lapse manager."""
         return self._cameras
+
+    def has_camera(self, camera):
+        """Return whether the camera exists on this time-lapse manager.
+        
+        Returns: A boolean specifying whether the camera exists on this
+            time-lapse manager.
+        """
+        if camera in self._cameras:
+            return True
+        else:
+            return False
