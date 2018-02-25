@@ -8,8 +8,14 @@ from abstract_camera import AbstractCamera
 class MockCamera(AbstractCamera):
     """A class representing a mock camera."""
 
-    def __init__(self):
-        """Initialise the mock camera."""
+    def __init__(self, name=""):
+        """Initialise the mock camera.
+
+        Args:
+            name: The name or reference of this camera.
+        """
+
+        self._name = name
         self._captured_images = []
 
     def capture_image(self, image_path, filename, overwrite=False):

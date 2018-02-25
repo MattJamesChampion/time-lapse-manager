@@ -7,6 +7,15 @@ class AbstractCamera(ABC):
     """An abstract class representing a basic camera."""
 
     @abstractmethod
+    def __init__(self, name=""):
+        """Initialise the mock camera.
+
+        Args:
+            name: The name or reference of this camera.
+        """
+        pass
+
+    @abstractmethod
     def capture_image(self, image_path, filename, overwrite=False):
         """Capture an image and store it in the specified location.
 
