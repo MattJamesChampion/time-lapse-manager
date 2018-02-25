@@ -6,14 +6,20 @@ from abc import ABC, abstractmethod
 class AbstractCamera(ABC):
     """An abstract class representing a basic camera."""
 
-    @abstractmethod
     def __init__(self, name=""):
         """Initialise the mock camera.
 
         Args:
             name: The name or reference of this camera.
         """
-        pass
+        self._name = name
+
+    def __str__(self):
+        """Return a string representation of this camera.
+        
+        Returns: A string representation of this camera.
+        """
+        return self._name
 
     @abstractmethod
     def capture_image(self, image_path, filename, overwrite=False):
