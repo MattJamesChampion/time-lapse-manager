@@ -40,7 +40,7 @@ class TimeLapseManager:
             cameras: The cameras that will be used when capturing images using
                 this time-lapse manager.
         """
-        self._cameras = cameras
+        self._cameras = cameras[:]
 
     def get_cameras(self):
         """Get the cameras currently set on this time-lapse manager.
