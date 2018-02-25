@@ -35,7 +35,10 @@ class TimeLapseManager:
         self._cameras = cameras
 
     def get_cameras(self):
-        """Get the cameras currently set on this time-lapse manager."""
+        """Get the cameras currently set on this time-lapse manager.
+        
+        Returns: A collection of cameras.
+        """
         return self._cameras
 
     def has_camera(self, camera):
