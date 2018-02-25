@@ -27,12 +27,12 @@ class TimeLapseManager:
 
     def remove_camera(self, camera):
         """Remove a camera from the collection on this time-lapse manager.
-        
+
         Raises:
             ValueError: If the camera does not exist.
         """
         self._cameras.remove(camera)
-        
+
     def set_cameras(self, cameras):
         """Set the cameras that will be used with this time-lapse manager.
 
@@ -44,14 +44,14 @@ class TimeLapseManager:
 
     def get_cameras(self):
         """Get the cameras currently set on this time-lapse manager.
-        
+
         Returns: A collection of cameras.
         """
         return self._cameras
 
     def has_camera(self, camera):
         """Return whether the camera exists on this time-lapse manager.
-        
+
         Returns: A boolean specifying whether the camera exists on this
             time-lapse manager.
         """
