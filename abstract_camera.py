@@ -28,3 +28,11 @@ class AbstractCamera(ABC):
                 filename.
         """
         pass
+
+    @abstractmethod
+    def get_captured_images(self):
+        """Return a list of filepaths of the images captured.
+
+        Returns: A list of filepaths of the images captured.
+        """
+        pass
