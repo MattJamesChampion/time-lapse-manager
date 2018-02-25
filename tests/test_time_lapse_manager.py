@@ -35,3 +35,15 @@ class TestTimeLapseManager(TestCase):
 
         self.assertEqual(new_mock_camera_collection,
             time_lapse_manager.get_cameras())
+
+    def test_add_camera_ignores_duplicate_cameras(self):
+        time_lapse_manager = TimeLapseManager(self.mock_camera_collection)
+
+        time_lapse_manager.add_camera(self.third_mock_camera)
+        time_lapse_manager.add_camera(self.third_mock_camera)
+
+        new_mock_camera_collection = self.mock_camera_collection +\
+            [self.third_mock_camera]
+
+        self.assertEqual(new_mock_camera_collection,
+            time_lapse_manager.get_cameras())

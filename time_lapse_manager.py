@@ -22,7 +22,8 @@ class TimeLapseManager:
         Args:
             camera: The camera to add
         """
-        self._cameras.append(camera)
+        if camera not in self._cameras:
+            self._cameras.append(camera)
 
     def set_cameras(self, cameras):
         """Set the cameras that will be used with this time-lapse manager.
