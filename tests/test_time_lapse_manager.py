@@ -11,6 +11,13 @@ class TestTimeLapseManager(TestCase):
         self.mock_camera_collection = [self.first_mock_camera,
             self.second_mock_camera]
 
+    def test_init_works_without_camera_argument(self):
+        try:
+            TimeLapseManager()
+        except Exception:
+            self.fail("TimeLapseManager threw an exception during "
+                "initialisation.")
+
     def test_get_cameras_returns_cameras(self):
         time_lapse_manager = TimeLapseManager(self.mock_camera_collection)
 
