@@ -14,8 +14,7 @@ class MockCamera(AbstractCamera):
         Args:
             name: The name or reference of this camera.
         """
-
-        self._name = name
+        super().__init__(name)
         self._captured_images = []
 
     def capture_image(self, image_path, filename, overwrite=False):
