@@ -12,9 +12,9 @@ class TimeLapseManager:
                 images using this time-lapse manager.
         """
         if cameras is not None:
-            self._cameras = cameras[:]
+            self.set_cameras(cameras[:])
         else:
-            self._cameras = []
+            self.set_cameras([])
 
     def add_camera(self, camera):
         """Add a camera to the collection on this time-lapse manager.
