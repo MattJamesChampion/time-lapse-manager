@@ -44,6 +44,20 @@ class TestTimeLapseManager(TestCase):
         self.assertEqual(new_mock_camera_collection,
             self.basic_time_lapse_manager.get_cameras())
 
+    def test_remove_camera_removes_existing_camera_correctly(self):
+        existing_camera = self.second_mock_camera
+        
+        self.basic_time_lapse_manager.remove_camera(existing_camera)
+
+        self.assertFalse(
+            self.basic_time_lapse_manager.has_camera(existing_camera))
+    
+    def test_remove_camera_throws_value_error_when_camera_does_not_exist(self):
+        nonexistant_camera = self.third_mock_camera
+        
+        with self.assertRaises(ValueError):
+            self.basic_time_lapse_manager.remove_camera(nonexistant_camera)
+
     def test_has_camera_returns_true_when_camera_exists(self):
         existing_camera = self.first_mock_camera
     

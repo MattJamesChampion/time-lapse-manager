@@ -25,6 +25,14 @@ class TimeLapseManager:
         if camera not in self._cameras:
             self._cameras.append(camera)
 
+    def remove_camera(self, camera):
+        """Remove a camera from the collection on this time-lapse manager.
+        
+        Raises:
+            ValueError: If the camera does not exist.
+        """
+        self._cameras.remove(camera)
+        
     def set_cameras(self, cameras):
         """Set the cameras that will be used with this time-lapse manager.
 
