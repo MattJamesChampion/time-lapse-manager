@@ -26,8 +26,8 @@ class TestTimeLapseManager(TestCase):
                       "initialisation.")
 
     def test_get_cameras_returns_cameras(self):
-        self.assertEqual(self.basic_time_lapse_manager.get_cameras(),
-                         self.mock_camera_collection)
+        self.assertEqual(self.mock_camera_collection,
+                         self.basic_time_lapse_manager.get_cameras())
 
     def test_add_camera_adds_camera_correctly(self):
         self.basic_time_lapse_manager.add_camera(self.third_mock_camera)
