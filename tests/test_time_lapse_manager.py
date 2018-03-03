@@ -25,6 +25,10 @@ class TestTimeLapseManager(TestCase):
             self.fail("TimeLapseManager threw an exception during "
                       "initialisation.")
 
+    def test_init_sets_capture_interval_correctly(self):
+        self.assertEqual(self.capture_interval,
+                         self.basic_time_lapse_manager.get_capture_interval())
+
     def test_get_cameras_returns_cameras(self):
         self.assertEqual(self.mock_camera_collection,
                          self.basic_time_lapse_manager.get_cameras())
@@ -82,6 +86,14 @@ class TestTimeLapseManager(TestCase):
 
         self.assertEqual(new_cameras_collection,
                          self.basic_time_lapse_manager.get_cameras())
+
+    def test_set_capture_interval_updates_capture_interval_correctly(self):
+        new_capture_interval = 60
+
+        self.basic_time_lapse_manager.set_capture_interval(new_capture_interval)
+
+        self.assertEqual(new_capture_interval,
+                         self.basic_time_lapse_manager.get_capture_interval())
 
     def test_set_capture_interval_raises_value_error_when_capture_interval_is_not_greater_than_zero(self):
         new_capture_interval = 0
