@@ -68,6 +68,13 @@ class TimeLapseManager:
         else:
             return False
 
+    def get_capture_interval(self):
+        """Get the interval (in seconds) to wait between capturing images.
+
+        Returns: The interval (in seconds) to wait between capturing images.
+        """
+        return self._capture_interval
+
     def set_capture_interval(self, capture_interval):
         """Set the interval (in seconds) to wait between capturing images.
 
@@ -87,10 +94,3 @@ class TimeLapseManager:
         except TypeError as error:
             exception_message = "capture_interval must be a numeric type."
             raise TypeError(exception_message) from error
-
-    def get_capture_interval(self):
-        """Get the interval (in seconds) to wait between capturing images.
-
-        Returns: The interval (in seconds) to wait between capturing images.
-        """
-        return self._capture_interval
