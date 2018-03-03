@@ -10,11 +10,13 @@ class TestTimeLapseManager(TestCase):
         self.second_mock_camera = MockCamera("Second")
         self.third_mock_camera = MockCamera("Third")
 
+        self.capture_interval = 5
+
         self.mock_camera_collection = [self.first_mock_camera,
                                        self.second_mock_camera]
 
         self.basic_time_lapse_manager = TimeLapseManager(
-            self.mock_camera_collection)
+            self.mock_camera_collection, self.capture_interval)
 
     def test_init_works_without_camera_argument(self):
         try:
@@ -80,3 +82,15 @@ class TestTimeLapseManager(TestCase):
 
         self.assertEqual(new_cameras_collection,
                          self.basic_time_lapse_manager.get_cameras())
+
+    def test_set_capture_interval_raises_value_error_when_capture_interval_is_not_greater_than_zero(self):
+        new_capture_interval = 0
+
+        with self.assertRaises(ValueError):
+            self.basic_time_lapse_manager.set_capture_interval(new_capture_interval)
+
+    def test_set_capture_interval_raises_type_error_when_capture_interval_is_not_numeric(self):
+        new_capture_interval = "Test"
+
+        with self.assertRaises(TypeError):
+            self.basic_time_lapse_manager.set_capture_interval("Test")
