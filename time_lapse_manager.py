@@ -22,7 +22,7 @@ class TimeLapseManager:
         else:
             self.set_cameras([])
 
-        self.set_capture_interval(capture_interval)
+        self.capture_interval = capture_interval
 
     def add_camera(self, camera):
         """Add a camera to the collection on this time-lapse manager.
@@ -68,14 +68,16 @@ class TimeLapseManager:
         else:
             return False
 
-    def get_capture_interval(self):
+    @property
+    def capture_interval(self):
         """Get the interval (in seconds) to wait between capturing images.
 
         Returns: The interval (in seconds) to wait between capturing images.
         """
         return self._capture_interval
 
-    def set_capture_interval(self, capture_interval):
+    @capture_interval.setter
+    def capture_interval(self, capture_interval):
         """Set the interval (in seconds) to wait between capturing images.
 
         Args:
