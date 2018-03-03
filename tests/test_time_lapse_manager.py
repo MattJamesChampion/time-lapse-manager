@@ -18,7 +18,7 @@ class TestTimeLapseManager(TestCase):
         self.basic_time_lapse_manager = TimeLapseManager(
             self.mock_camera_collection, self.capture_interval)
 
-    def test_init_works_without_camera_argument(self):
+    def test_init_works_with_default_arguments(self):
         try:
             TimeLapseManager()
         except Exception:
