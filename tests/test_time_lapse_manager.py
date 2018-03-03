@@ -94,3 +94,7 @@ class TestTimeLapseManager(TestCase):
 
         with self.assertRaises(TypeError):
             self.basic_time_lapse_manager.set_capture_interval("Test")
+
+    def test_get_capture_interval_returns_correct_result(self):
+        self.assertEqual(self.capture_interval,
+                         self.basic_time_lapse_manager.get_capture_interval())
