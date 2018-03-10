@@ -2,7 +2,7 @@
 
 import os
 import sys
-from abstract_camera import AbstractCamera
+from camera.abstract_camera import AbstractCamera
 
 
 class MockCamera(AbstractCamera):
