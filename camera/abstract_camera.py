@@ -32,6 +32,11 @@ class AbstractCamera(ABC):
             overwrite: Specifies whether or not to overwrite a file if it
                 already exists in the specified image_path with the specified
                 filename.
+        Raises:
+            CameraCaptureError: If there is an issue with capturing the image
+                caused by the camera.
+            ImageStorageError: If the image can be captured but cannot be
+                stored successfully.
         """
         pass
 
