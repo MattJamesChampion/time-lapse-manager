@@ -105,7 +105,7 @@ class TestTimeLapseManager(TestCase):
         new_capture_interval = "Test"
 
         with self.assertRaises(TypeError):
-            self.basic_time_lapse_manager.capture_interval = "Test"
+            self.basic_time_lapse_manager.capture_interval = new_capture_interval
 
     def test_get_capture_interval_returns_correct_result(self):
         self.assertEqual(self.capture_interval,
