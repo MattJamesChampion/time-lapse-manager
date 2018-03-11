@@ -7,7 +7,7 @@ class AbstractCamera(ABC):
     """An abstract class representing a basic camera."""
 
     def __init__(self, name=""):
-        """Initialise the mock camera.
+        """Initialise the camera.
 
         Args:
             name: The name or reference of this camera.
