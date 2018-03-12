@@ -13,6 +13,7 @@ class AbstractCamera(ABC):
             name: The name or reference of this camera.
         """
         self._name = name
+        self.storage_directory = None
 
     def __str__(self):
         """Return a string representation of this camera.
