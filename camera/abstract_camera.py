@@ -33,6 +33,8 @@ class AbstractCamera(ABC):
                 already exists in the specified image_path with the specified
                 filename.
         Raises:
+            CameraConnectionError: If there is an issue with contacting the
+                camera.
             CameraCaptureError: If there is an issue with capturing the image
                 caused by the camera.
             ImageStorageError: If the image can be captured but cannot be
