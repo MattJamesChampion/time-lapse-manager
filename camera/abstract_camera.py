@@ -6,14 +6,15 @@ from abc import ABC, abstractmethod
 class AbstractCamera(ABC):
     """An abstract class representing a basic camera."""
 
-    def __init__(self, name=""):
+    def __init__(self, name="", storage_directory=None):
         """Initialise the camera.
 
         Args:
             name: The name or reference of this camera.
+            storage_directory: The directory that images will be stored to.
         """
         self._name = name
-        self.storage_directory = None
+        self.storage_directory = storage_directory
 
     def __str__(self):
         """Return a string representation of this camera.
