@@ -51,3 +51,11 @@ class AbstractCamera(ABC):
         Returns: A list of filepaths of the images captured.
         """
         pass
+
+    @abstractmethod
+    def get_next_filename(self):
+        """Return the filename of the next image that will be captured.
+
+        Returns: The filename of the next image that will be captured.
+        """
+        pass
