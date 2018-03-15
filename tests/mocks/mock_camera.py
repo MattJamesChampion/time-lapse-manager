@@ -8,16 +8,19 @@ from camera.abstract_camera import AbstractCamera
 class MockCamera(AbstractCamera):
     """A class representing a mock camera."""
 
-    def __init__(self, name="", storage_directory=None):
+    def __init__(self, name="", storage_directory=None, file_extension=".jpg"):
         """Initialise the mock camera.
 
         Args:
             name: The name or reference of this camera.
             storage_directory: The directory that images will be stored to.
+            file_extension: The file extension to be used on this camera.
         """
         super().__init__(name, storage_directory)
 
         self._captured_images = []
+        
+        self.file_extension = file_extension
 
     def capture_image(self, image_path, filename, overwrite=False):
         """Capture an image and store it in the specified location.
