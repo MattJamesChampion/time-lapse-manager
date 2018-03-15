@@ -59,3 +59,20 @@ class AbstractCamera(ABC):
         Returns: The filename of the next image that will be captured.
         """
         pass
+
+    @property
+    def file_extension(self):
+        """Return the file extension used on this camera.
+        
+        Returns: The file extension used on this camera.
+        """
+        return self._file_extension
+
+    @file_extension.setter
+    def file_extension(self, file_extension):
+        """Set the file extension to be used on this camera.
+        
+        Args:
+            file_extension: The file extension to be used on this camera.
+        """
+        self._file_extension = file_extension
