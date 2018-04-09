@@ -18,7 +18,7 @@ class MockCamera(AbstractCamera):
         """
         super().__init__(name, storage_directory)
 
-        self._captured_images = []
+        self._captured_image_paths = []
         
         self.file_extension = file_extension
 
@@ -40,20 +40,20 @@ class MockCamera(AbstractCamera):
         new_image_path = os.path.join(self.storage_directory,
                                       new_image_filename)
 
-        self._captured_images.append(new_image_path)
+        self._captured_image_paths.append(new_image_path)
 
     def get_captured_image_paths(self):
         """Return a list of filepaths of the images captured.
 
         Returns: A list of filepaths of the images captured.
         """
-        return self._captured_images
+        return self._captured_image_paths
 
     def get_next_filename(self):
         """Return the filename of the next image that will be captured.
 
         Returns: The filename of the next image that will be captured.
         """
-        number_of_captured_images = len(self._captured_images)
+        number_of_captured_images = len(self._captured_image_paths)
         
         return f"{number_of_captured_images + 1:08}"
