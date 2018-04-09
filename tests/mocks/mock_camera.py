@@ -8,7 +8,7 @@ from camera.abstract_camera import AbstractCamera
 class MockCamera(AbstractCamera):
     """A class representing a mock camera."""
 
-    def __init__(self, name="", storage_directory=None, file_extension=".jpg"):
+    def __init__(self, name="", storage_directory=None, file_extension="jpg"):
         """Initialise the mock camera.
 
         Args:
