@@ -42,7 +42,7 @@ class MockCamera(AbstractCamera):
 
         self._captured_images.append(new_image_path)
 
-    def get_captured_images(self):
+    def get_captured_image_paths(self):
         """Return a list of filepaths of the images captured.
 
         Returns: A list of filepaths of the images captured.
