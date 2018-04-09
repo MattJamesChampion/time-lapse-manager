@@ -22,16 +22,9 @@ class MockCamera(AbstractCamera):
         
         self.file_extension = file_extension
 
-    def capture_image(self, image_path, filename, overwrite=False):
-        """Capture an image and store it in the specified location.
+    def capture_image(self):
+        """Capture an image to the default storage_directory.
 
-        Args:
-            image_path: The full path that the image will be stored to.
-            filename: The file name that the image will be stored as
-                (including extension).
-            overwrite: Specifies whether or not to overwrite a file if it
-                already exists in the specified image_path with the specified
-                filename.
         Raises:
             CameraConnectionError: If there is an issue with contacting the
                 camera.
@@ -40,7 +33,14 @@ class MockCamera(AbstractCamera):
             ImageStorageError: If the image can be captured but cannot be
                 stored successfully.
         """
-        self._captured_images.append(os.path.join(image_path, filename))
+        new_image_filename = (self.get_next_filename() +
+                             "." +
+                             self.file_extension)
+        
+        new_image_path = os.path.join(self.storage_directory,
+                                      new_image_filename)
+
+        self._captured_images.append(new_image_path)
 
     def get_captured_images(self):
         """Return a list of filepaths of the images captured.
