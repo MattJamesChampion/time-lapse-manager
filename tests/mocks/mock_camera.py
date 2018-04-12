@@ -47,7 +47,7 @@ class MockCamera(AbstractCamera):
 
         Returns: A list of filepaths of the images captured.
         """
-        return self._captured_image_paths
+        return self._captured_image_paths[:]
 
     def get_next_filename(self):
         """Return the filename of the next image that will be captured.
