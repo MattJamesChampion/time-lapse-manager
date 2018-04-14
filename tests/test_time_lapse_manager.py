@@ -114,7 +114,7 @@ class TestTimeLapseManager(TestCase):
         self.assertEqual(self.capture_interval,
                          self.basic_time_lapse_manager.capture_interval)
 
-    def test_set_capture_limit_updates_capture_limit_correctly(self):
+    def test_capture_limit_setter_updates_capture_limit_correctly(self):
         new_capture_limit = 100
 
         self.basic_time_lapse_manager.capture_limit = new_capture_limit
@@ -122,19 +122,19 @@ class TestTimeLapseManager(TestCase):
         self.assertEqual(new_capture_limit,
                          self.basic_time_lapse_manager.capture_limit)
 
-    def test_set_capture_limit_raises_value_error_when_capture_limit_is_not_greater_than_zero(self):
+    def test_capture_limit_setter_raises_value_error_when_capture_limit_is_not_greater_than_zero(self):
         new_capture_limit = 0
 
         with self.assertRaises(ValueError):
             self.basic_time_lapse_manager.capture_limit = new_capture_limit
 
-    def test_set_capture_limit_raises_type_error_when_capture_limit_is_not_numeric(self):
+    def test_capture_limit_setter_raises_type_error_when_capture_limit_is_not_numeric(self):
         new_capture_limit = "Test"
 
         with self.assertRaises(TypeError):
             self.basic_time_lapse_manager.capture_limit = new_capture_limit
 
-    def test_set_capture_limit_does_not_raise_type_error_when_capture_limit_is_none(self):
+    def test_capture_limit_setter_does_not_raise_type_error_when_capture_limit_is_none(self):
         new_capture_limit = None
 
         try:
@@ -143,7 +143,7 @@ class TestTimeLapseManager(TestCase):
             self.fail("TimeLapseManager threw a TypeError exception when "
                       "setting capture_limit to None.")
 
-    def test_get_capture_limit_returns_correct_result(self):
+    def test_capture_limit_property_returns_correct_result(self):
         self.assertEqual(self.capture_limit,
                          self.basic_time_lapse_manager.capture_limit)
 
