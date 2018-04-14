@@ -11,12 +11,15 @@ class TestTimeLapseManager(TestCase):
         self.third_mock_camera = MockCamera("Third")
 
         self.capture_interval = 5
+        self.capture_limit = 10
 
         self.mock_camera_collection = [self.first_mock_camera,
                                        self.second_mock_camera]
 
         self.basic_time_lapse_manager = TimeLapseManager(
-            self.mock_camera_collection, self.capture_interval)
+            self.mock_camera_collection,
+            self.capture_interval,
+            self.capture_limit)
 
     def test_init_works_with_default_arguments(self):
         try:
@@ -110,3 +113,37 @@ class TestTimeLapseManager(TestCase):
     def test_get_capture_interval_returns_correct_result(self):
         self.assertEqual(self.capture_interval,
                          self.basic_time_lapse_manager.capture_interval)
+
+    def test_set_capture_limit_updates_capture_limit_correctly(self):
+        new_capture_limit = 100
+
+        self.basic_time_lapse_manager.capture_limit = new_capture_limit
+
+        self.assertEqual(new_capture_limit,
+                         self.basic_time_lapse_manager.capture_limit)
+
+    def test_set_capture_limit_raises_value_error_when_capture_limit_is_not_greater_than_zero(self):
+        new_capture_limit = 0
+
+        with self.assertRaises(ValueError):
+            self.basic_time_lapse_manager.capture_limit = new_capture_limit
+
+    def test_set_capture_limit_raises_type_error_when_capture_limit_is_not_numeric(self):
+        new_capture_limit = "Test"
+
+        with self.assertRaises(TypeError):
+            self.basic_time_lapse_manager.capture_limit = new_capture_limit
+
+    def test_set_capture_limit_does_not_raise_type_error_when_capture_limit_is_none(self):
+        new_capture_limit = None
+
+        try:
+            self.basic_time_lapse_manager.capture_limit = new_capture_limit
+        except TypeError:
+            self.fail("TimeLapseManager threw a TypeError exception when "
+                      "setting capture_limit to None.")
+
+    def test_get_capture_limit_returns_correct_result(self):
+        self.assertEqual(self.capture_limit,
+                         self.basic_time_lapse_manager.capture_limit)
+

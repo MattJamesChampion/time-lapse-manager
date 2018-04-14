@@ -4,7 +4,7 @@
 class TimeLapseManager:
     """A basic time-lapse manager."""
 
-    def __init__(self, cameras=None, capture_interval=10):
+    def __init__(self, cameras=None, capture_interval=10, capture_limit=None):
         """Initialise the time-lapse manager with the camera that will be used.
 
         Args:
@@ -12,10 +12,14 @@ class TimeLapseManager:
                 images using this time-lapse manager.
             capture_interval: The interval (in seconds) to wait between
                 capturing images.
+            capture_limit: The maximum number of images to capture (or None for
+                infinite).
 
         Raises:
-            ValueError: If capture_interval is not greater than 0.
-            TypeError: If capture_interval is not a numeric type.
+            ValueError: If capture_interval is not greater than 0 or if
+                capture_limit is not greater than 0 or None.
+            TypeError: If capture_interval is not a numeric type or if
+                capture_limit is not a numeric type or None.
         """
         if cameras is not None:
             self.set_cameras(cameras[:])
@@ -23,6 +27,7 @@ class TimeLapseManager:
             self.set_cameras([])
 
         self.capture_interval = capture_interval
+        self.capture_limit = capture_limit
 
     def add_camera(self, camera):
         """Add a camera to the collection on this time-lapse manager.
@@ -95,4 +100,34 @@ class TimeLapseManager:
                 raise ValueError("capture_interval must be greater than 0.")
         except TypeError as error:
             exception_message = "capture_interval must be a numeric type."
+            raise TypeError(exception_message) from error
+
+    @property
+    def capture_limit(self):
+        """Get the maximum number of images to capture (or None for infinite).
+        
+        Returns: The maximum number of images to capture (or None for
+            infinite).
+        """
+        return self._capture_limit
+
+    @capture_limit.setter
+    def capture_limit(self, capture_limit):
+        """Set the maximum number of images to capture (or None for infinite).
+        
+        Args:
+            capture_limit: The maximum number of images to capture (or None for
+                infinite).
+
+        Raises:
+            ValueError: If capture_interval is not greater than 0.
+            TypeError: If capture_interval is not a numeric type or None.
+        """
+        try:
+            if capture_limit is None or capture_limit > 0:
+                self._capture_limit = capture_limit
+            else:
+                raise ValueError("capture_limit must be greater than 0.")
+        except TypeError as error:
+            exception_message = "capture_limit must be a numeric type."
             raise TypeError(exception_message) from error
