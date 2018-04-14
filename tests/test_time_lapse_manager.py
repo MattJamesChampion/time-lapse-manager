@@ -90,7 +90,7 @@ class TestTimeLapseManager(TestCase):
         self.assertEqual(new_cameras_collection,
                          self.basic_time_lapse_manager.get_cameras())
 
-    def test_set_capture_interval_updates_capture_interval_correctly(self):
+    def test_capture_interval_setter_updates_capture_interval_correctly(self):
         new_capture_interval = 60
 
         self.basic_time_lapse_manager.capture_interval = new_capture_interval
@@ -98,19 +98,19 @@ class TestTimeLapseManager(TestCase):
         self.assertEqual(new_capture_interval,
                          self.basic_time_lapse_manager.capture_interval)
 
-    def test_set_capture_interval_raises_value_error_when_capture_interval_is_not_greater_than_zero(self):
+    def test_capture_interval_setter_raises_value_error_when_capture_interval_is_not_greater_than_zero(self):
         new_capture_interval = 0
 
         with self.assertRaises(ValueError):
             self.basic_time_lapse_manager.capture_interval = new_capture_interval
 
-    def test_set_capture_interval_raises_type_error_when_capture_interval_is_not_numeric(self):
+    def test_capture_interval_setter_raises_type_error_when_capture_interval_is_not_numeric(self):
         new_capture_interval = "Test"
 
         with self.assertRaises(TypeError):
             self.basic_time_lapse_manager.capture_interval = new_capture_interval
 
-    def test_get_capture_interval_returns_correct_result(self):
+    def test_capture_interval_property_returns_correct_result(self):
         self.assertEqual(self.capture_interval,
                          self.basic_time_lapse_manager.capture_interval)
 
