@@ -19,8 +19,6 @@ class MockCamera(AbstractCamera):
         super().__init__(name, storage_directory, file_extension)
 
         self._captured_image_paths = []
-        
-        self.file_extension = file_extension
 
     def capture_image(self):
         """Capture an image to the default storage_directory.
