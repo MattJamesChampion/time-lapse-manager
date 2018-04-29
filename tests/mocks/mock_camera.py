@@ -16,7 +16,7 @@ class MockCamera(AbstractCamera):
             storage_directory: The directory that images will be stored to.
             file_extension: The file extension to be used on this camera.
         """
-        super().__init__(name, storage_directory)
+        super().__init__(name, storage_directory, file_extension)
 
         self._captured_image_paths = []
         
