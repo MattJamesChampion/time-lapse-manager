@@ -147,3 +147,6 @@ class TestTimeLapseManager(TestCase):
         self.assertEqual(self.capture_limit,
                          self.basic_time_lapse_manager.capture_limit)
 
+    def test_captured_frames_returns_zero_before_capture(self):
+        self.assertEqual(0,
+                         self.basic_time_lapse_manager.captured_frames)

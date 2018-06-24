@@ -28,6 +28,7 @@ class TimeLapseManager:
 
         self.capture_interval = capture_interval
         self.capture_limit = capture_limit
+        self._captured_frames = 0
 
     def add_camera(self, camera):
         """Add a camera to the collection on this time-lapse manager.
@@ -131,3 +132,11 @@ class TimeLapseManager:
         except TypeError as error:
             exception_message = "capture_limit must be a numeric type."
             raise TypeError(exception_message) from error
+
+    @property
+    def captured_frames(self):
+        """Return the number of frames that have been captured.
+
+        Returns: The number of frames that have been captured.
+        """
+        return self._captured_frames
