@@ -1,5 +1,5 @@
 """A library for managing time-lapse sequences."""
-
+from time import sleep
 
 class TimeLapseManager:
     """A basic time-lapse manager."""
@@ -140,6 +140,17 @@ class TimeLapseManager:
         Returns: The number of frames that have been captured.
         """
         return self._captured_frames
+
+    def start_time_lapse(self):
+        """Start the time-lapse process."""
+        if self.capture_limit is not None:
+            for frame in range(self.capture_limit):
+                self.capture_frame()
+                sleep(self.capture_interval)
+        else:
+            while True:
+                self.capture_frame()
+                sleep(self.capture_interval)
 
     def capture_frame(self):
         """Capture images using the cameras on this time-lapse manager."""
