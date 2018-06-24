@@ -34,9 +34,12 @@ class MockCamera(AbstractCamera):
         new_image_filename = (self.get_next_filename() +
                              "." +
                              self.file_extension)
-        
-        new_image_path = os.path.join(self.storage_directory,
-                                      new_image_filename)
+
+        if self.storage_directory is not None:
+            new_image_path = os.path.join(self.storage_directory,
+                                          new_image_filename)
+        else:
+            new_image_path = new_image_filename
 
         self._captured_image_paths.append(new_image_path)
 
