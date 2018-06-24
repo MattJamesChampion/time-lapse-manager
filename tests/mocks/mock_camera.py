@@ -57,4 +57,4 @@ class MockCamera(AbstractCamera):
         """
         number_of_captured_images = len(self._captured_image_paths)
         
-        return f"{number_of_captured_images + 1:08}"
+        return str(len(self.get_captured_image_paths()) + 1).rjust(8, "0")
