@@ -140,3 +140,16 @@ class TimeLapseManager:
         Returns: The number of frames that have been captured.
         """
         return self._captured_frames
+
+    def capture_frame(self):
+        """Capture images using the cameras on this time-lapse manager."""
+        if self.capture_limit is None:
+            capture_limit_reached = False
+        else:
+            capture_limit_reached = self.captured_frames >= \
+                self.capture_limit
+
+        if not capture_limit_reached:
+            for camera in self.get_cameras():
+                camera.capture_image()
+            self._captured_frames += 1

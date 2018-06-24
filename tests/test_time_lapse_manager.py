@@ -150,3 +150,10 @@ class TestTimeLapseManager(TestCase):
     def test_captured_frames_returns_zero_before_capture(self):
         self.assertEqual(0,
                          self.basic_time_lapse_manager.captured_frames)
+
+    def test_capture_frame_does_not_throw_exception(self):
+        try:
+            self.basic_time_lapse_manager.capture_frame()
+        except Exception:
+            self.fail("TimeLapseManager threw an exception when capturing a "
+                      "time-lapse frame.")
