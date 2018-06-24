@@ -151,6 +151,15 @@ class TestTimeLapseManager(TestCase):
         self.assertEqual(0,
                          self.basic_time_lapse_manager.captured_frames)
 
+    def test_captured_frames_returns_correct_result_after_capture(self):
+        capture_frames = 4
+
+        for capture_frame in range(capture_frames):
+            self.basic_time_lapse_manager.capture_frame()
+
+        self.assertEqual(capture_frames,
+                         self.basic_time_lapse_manager.captured_frames)
+
     def test_capture_frame_does_not_throw_exception(self):
         try:
             self.basic_time_lapse_manager.capture_frame()
