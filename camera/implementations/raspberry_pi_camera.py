@@ -1,6 +1,6 @@
 """An interface for using the camera module on a Raspberry Pi."""
 
-import os
+from os.path import join
 
 from camera.abstract_camera import AbstractCamera
 from camera.exceptions import CameraCaptureError
@@ -48,8 +48,8 @@ class RaspberryPiCamera(AbstractCamera):
                                   "." +
                                   self.file_extension)
 
-            full_path = os.path.join(self.storage_directory,
-                                     new_image_filename)
+            full_path = join(self.storage_directory,
+                             new_image_filename)
 
             self._camera_handle.capture(full_path, format=self.file_extension)
             self._captured_image_paths.append(full_path)

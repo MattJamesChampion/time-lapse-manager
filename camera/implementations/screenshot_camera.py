@@ -1,6 +1,6 @@
 """An interface for capturing screenshots."""
 
-import os
+from os.path import join
 
 from camera.abstract_camera import AbstractCamera
 import wx
@@ -51,8 +51,8 @@ class ScreenshotCamera(AbstractCamera):
                               "." +
                               self.file_extension)
 
-        full_path = os.path.join(self.storage_directory,
-                                 new_image_filename)
+        full_path = join(self.storage_directory,
+                         new_image_filename)
 
         if self.file_extension.lower() in ("jpg", "jpeg"):
             file_type = wx.BITMAP_TYPE_JPEG
