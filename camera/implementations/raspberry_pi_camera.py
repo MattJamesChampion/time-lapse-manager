@@ -54,7 +54,7 @@ class RaspberryPiCamera(AbstractCamera):
             self._camera_handle.capture(full_path, format=self.file_extension)
             self._captured_image_paths.append(full_path)
         except PiCameraError as exc:
-            self._camera_handle.close()
+            self.tear_down()
             self._captured_image_paths.append(None)
             raise CameraCaptureError from exc
 
