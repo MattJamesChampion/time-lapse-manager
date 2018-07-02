@@ -20,6 +20,12 @@ class MockCamera(AbstractCamera):
 
         self._captured_image_paths = []
 
+    def set_up(self):
+        pass
+
+    def tear_down(self):
+        pass
+
     def capture_image(self):
         """Capture an image to the default storage_directory.
 

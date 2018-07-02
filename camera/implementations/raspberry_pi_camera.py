@@ -26,6 +26,12 @@ class RaspberryPiCamera(AbstractCamera):
         
         self._camera_handle = PiCamera()
 
+    def set_up(self):
+        pass
+
+    def tear_down(self):
+        self._camera_handle.close()
+
     def capture_image(self):
         """Capture an image to the default storage_directory.
 

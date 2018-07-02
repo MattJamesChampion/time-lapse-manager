@@ -18,6 +18,14 @@ class AbstractCamera(ABC):
         self.storage_directory = storage_directory
         self.file_extension = file_extension
 
+    @abstractmethod
+    def set_up(self):
+        pass
+
+    @abstractmethod
+    def tear_down(self):
+        pass
+
     def __str__(self):
         """Return a string representation of this camera.
         
