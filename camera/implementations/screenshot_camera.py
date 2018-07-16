@@ -63,15 +63,19 @@ class ScreenshotCamera(AbstractCamera):
         else:
             file_type == wx.BITMAP_TYPE_JPEG
 
-        app = wx.App()
-        screen = wx.ScreenDC()
+        try:
+            app = wx.App()
+            screen = wx.ScreenDC()
 
-        screen_width, screen_height = screen.GetSize()
+            screen_width, screen_height = screen.GetSize()
 
-        bitmap = wx.Bitmap(screen_width, screen_height)
+            bitmap = wx.Bitmap(screen_width, screen_height)
 
-        memory = wx.MemoryDC(bitmap)
-        memory.Blit(0, 0, screen_width, screen_height, screen, 0, 0)
+            memory = wx.MemoryDC(bitmap)
+            memory.Blit(0, 0, screen_width, screen_height, screen, 0, 0)
+        except Exception as exc:
+            self._captured_image_paths.append(None)
+            raise CameraCaptureError from exc
 
         bitmap.SaveFile(full_path, file_type)
         self._captured_image_paths.append(full_path)
