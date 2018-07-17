@@ -27,9 +27,11 @@ class RaspberryPiCamera(AbstractCamera):
         self._camera_handle = PiCamera()
 
     def set_up(self):
+        """Set up the camera so that it is ready to capture an image."""
         pass
 
     def tear_down(self):
+        """Free any resources held by the camera."""
         self._camera_handle.close()
 
     def capture_image(self):

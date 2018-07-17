@@ -21,9 +21,11 @@ class MockCamera(AbstractCamera):
         self._captured_image_paths = []
 
     def set_up(self):
+        """Set up the camera so that it is ready to capture an image."""
         pass
 
     def tear_down(self):
+        """Free any resources held by the camera."""
         pass
 
     def capture_image(self):
