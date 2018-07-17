@@ -11,15 +11,21 @@ class ScreenshotCamera(AbstractCamera):
     def __init__(self,
                  name="Screenshot Camera",
                  storage_directory=None,
-                 file_extension=None):
+                 file_extension=None,
+                 images_stored_locally=True):
         """Initialise the screenshot camera.
 
         Args:
             name: The name or reference of this camera.
             storage_directory: The directory that images will be stored to.
             file_extension: The file extension to be used on this camera.
+            images_stored_locally: Whether the images are stored on a locally
+                accessible device or not.
         """
-        super().__init__(name, storage_directory, file_extension)
+        super().__init__(name,
+                         storage_directory,
+                         file_extension,
+                         images_stored_locally)
 
         self._captured_image_paths = []
 

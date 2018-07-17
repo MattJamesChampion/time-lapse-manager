@@ -6,17 +6,24 @@ from abc import ABC, abstractmethod
 class AbstractCamera(ABC):
     """An abstract class representing a basic camera."""
 
-    def __init__(self, name="", storage_directory=None, file_extension=None):
+    def __init__(self,
+                 name="",
+                 storage_directory=None,
+                 file_extension=None,
+                 images_stored_locally=False):
         """Initialise the camera.
 
         Args:
             name: The name or reference of this camera.
             storage_directory: The directory that images will be stored to.
             file_extension: The file extension to be used on this camera.
+            images_stored_locally: Whether the images are stored on a locally
+                accessible device or not.
         """
         self._name = name
         self.storage_directory = storage_directory
         self.file_extension = file_extension
+        self.images_stored_locally = images_stored_locally
 
     @abstractmethod
     def set_up(self):
