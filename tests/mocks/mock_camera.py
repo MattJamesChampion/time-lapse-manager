@@ -72,6 +72,6 @@ class MockCamera(AbstractCamera):
 
         Returns: The filename of the next image that will be captured.
         """
-        number_of_captured_images = len(self._captured_image_paths)
+        number_of_captured_images = len(self.get_captured_image_paths())
         
-        return str(len(self.get_captured_image_paths()) + 1).rjust(8, "0")
+        return str(number_of_captured_images + 1).rjust(8, "0")
