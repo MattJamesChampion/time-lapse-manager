@@ -155,7 +155,7 @@ class TimeLapseManager:
                 while True:
                     self.capture_frame()
                     sleep(self.capture_interval)
-        except Exception as exc:
+        except Exception:
             for camera in self.get_cameras():
                 camera.tear_down()
             raise
