@@ -148,7 +148,7 @@ class TimeLapseManager:
                 camera.set_up()
 
             if self.capture_limit is not None:
-                for frame in range(self.capture_limit):
+                for _ in range(self.capture_limit):
                     self.capture_frame()
                     sleep(self.capture_interval)
             else:
